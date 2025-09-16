@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang cá nhân của tôi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Chào mừng đến trang cá nhân của tôi</h1>
+    </header>
+
+    <main>
+        <section id="posts">
+            <h2>Bài viết mới</h2>
+        </section>
+
+        <section id="add-post">
+            <h2>Đăng bài mới</h2>
+            <form id="postForm">
+                <input type="text" id="title" placeholder="Tiêu đề" required>
+                <textarea id="content" placeholder="Nội dung bài viết" required></textarea>
+                <input type="file" id="image" accept="image/*">
+                <input type="file" id="pdf" accept="application/pdf">
+                <button type="submit">Đăng bài</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
