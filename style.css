@@ -1,43 +1,12 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #ffeef6;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  background: #ffb6c1;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-h1 {
-  margin: 0;
-  font-size: 1.8rem;
-  color: #fff;
-}
-
-button {
-  background: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 0.5rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  text-align: center;
-}
+body { font-family: Arial, sans-serif; background:#f4f7fa; color:#222; }
+.container { max-width:900px; margin:30px auto; padding:10px; }
+h1 { color:#0b63a9; text-align:center; }
+.card { background:white; padding:18px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.06); margin-bottom:18px; }
+input, textarea { width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #ddd; }
+button { padding:10px 14px; border-radius:6px; border:none; cursor:pointer; background:#0b63a9; color:white; }
+.row { display:flex; gap:8px; }
+.row button { flex:1; }
+.doc { background:#eef6ff; padding:10px; border-left:4px solid #0b63a9; margin-bottom:8px; border-radius:6px; }
+.toprow { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+pre { white-space: pre-wrap; }
+a.sharelink { display:inline-block; margin-right:8px; }
