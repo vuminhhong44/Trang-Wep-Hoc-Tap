@@ -2,27 +2,43 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thư viện học tập lớp Triết 18</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TRANG WEP HỌC TẬP</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>📚 Thư viện học tập lớp Triết 18</h1>
-    <button id="adminLoginBtn">🔑 Đăng nhập quản trị</button>
-  </header>
+  <div class="container">
+    <h1>TRANG WEP HỌC TẬP</h1>
 
-  <main>
-    <div id="postsContainer" class="grid"></div>
-  </main>
+    <div id="auth" class="card">
+      <h3>Đăng nhập / Đăng ký</h3>
+      <input id="username" placeholder="Tên đăng nhập" />
+      <input id="password" type="password" placeholder="Mật khẩu" />
+      <div class="row">
+        <button id="btnRegister">Đăng ký</button>
+        <button id="btnLogin">Đăng nhập</button>
+      </div>
+    </div>
 
-  <div id="adminPanel" class="hidden">
-    <h2>Đăng bài mới</h2>
-    <textarea id="newPostText" placeholder="Nhập nội dung bài viết..."></textarea>
-    <input type="file" id="newPostFile">
-    <button id="submitPostBtn">📤 Đăng bài</button>
+    <div id="main" class="card" style="display:none;">
+      <div class="toprow">
+        <h3>Xin chào, <span id="user"></span></h3>
+        <button id="btnLogout">Đăng xuất</button>
+      </div>
+
+      <h4>Thêm tài liệu</h4>
+      <input id="title" placeholder="Tiêu đề" />
+      <textarea id="content" rows="6" placeholder="Nội dung"></textarea>
+      <div class="row">
+        <button id="btnSave">Lưu</button>
+        <button id="btnShare">Tạo link chia sẻ (public)</button>
+      </div>
+
+      <h4>Tài liệu của bạn</h4>
+      <div id="docs"></div>
+    </div>
+
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
