@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang cá nhân của tôi</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thư viện học tập lớp Triết 18</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Chào mừng đến trang cá nhân của tôi</h1>
-    </header>
+  <header>
+    <h1>📚 Thư viện học tập lớp Triết 18</h1>
+    <button id="adminLoginBtn">🔑 Đăng nhập quản trị</button>
+  </header>
 
-    <main>
-        <section id="posts">
-            <h2>Bài viết mới</h2>
-        </section>
+  <main>
+    <div id="postsContainer" class="grid"></div>
+  </main>
 
-        <section id="add-post">
-            <h2>Đăng bài mới</h2>
-            <form id="postForm">
-                <input type="text" id="title" placeholder="Tiêu đề" required>
-                <textarea id="content" placeholder="Nội dung bài viết" required></textarea>
-                <input type="file" id="image" accept="image/*">
-                <input type="file" id="pdf" accept="application/pdf">
-                <button type="submit">Đăng bài</button>
-            </form>
-        </section>
-    </main>
+  <div id="adminPanel" class="hidden">
+    <h2>Đăng bài mới</h2>
+    <textarea id="newPostText" placeholder="Nhập nội dung bài viết..."></textarea>
+    <input type="file" id="newPostFile">
+    <button id="submitPostBtn">📤 Đăng bài</button>
+  </div>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
-    <script src="firebase-config.js"></script>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

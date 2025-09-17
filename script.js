@@ -1,58 +1,32 @@
-const form = document.getElementById('postForm');
-const postsSection = document.getElementById('posts');
+const adminPassword = "triet18admin";
+const adminLoginBtn = document.getElementById("adminLoginBtn");
+const adminPanel = document.getElementById("adminPanel");
 
-const displayPosts = async () => {
-    postsSection.innerHTML = '<h2>Bài viết mới</h2>';
-    const snapshot = await db.collection('posts').orderBy('timestamp', 'desc').get();
-    snapshot.forEach(doc => {
-        const data = doc.data();
-        const post = document.createElement('article');
-        post.classList.add('post');
-        let html = `<h3>${data.title}</h3><p>${data.content}</p>`;
-        if(data.imageURL){
-            html += `<img src="${data.imageURL}" class="post-image">`;
-        }
-        if(data.pdfURL){
-            html += `<p><a href="${data.pdfURL}" target="_blank">Xem PDF</a></p>`;
-        }
-        post.innerHTML = html;
-        postsSection.appendChild(post);
-    });
-};
-
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const title = document.getElementById('title').value;
-    const content = document.getElementById('content').value;
-    const imageFile = document.getElementById('image').files[0];
-    const pdfFile = document.getElementById('pdf').files[0];
-
-    let imageURL = '';
-    let pdfURL = '';
-
-    if(imageFile){
-        const imageRef = storage.ref().child(`images/${imageFile.name}`);
-        await imageRef.put(imageFile);
-        imageURL = await imageRef.getDownloadURL();
-    }
-
-    if(pdfFile){
-        const pdfRef = storage.ref().child(`pdfs/${pdfFile.name}`);
-        await pdfRef.put(pdfFile);
-        pdfURL = await pdfRef.getDownloadURL();
-    }
-
-    await db.collection('posts').add({
-        title,
-        content,
-        imageURL,
-        pdfURL,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    form.reset();
-    displayPosts();
+adminLoginBtn.addEventListener("click", () => {
+  const pwd = prompt("Nhập mật khẩu quản trị:");
+  if (pwd === adminPassword) {
+    alert("Đăng nhập thành công!");
+    adminPanel.classList.remove("hidden");
+  } else {
+    alert("Sai mật khẩu!");
+  }
 });
 
-// Load posts on page load
-displayPosts();
+// Tải bài đăng mẫu từ thư mục posts
+async function loadPosts() {
+  const container = document.getElementById("postsContainer");
+  const posts = ["bai-van-ban.txt", "tai-lieu.pdf", "bai-anh.jpg"];
+  posts.forEach(post => {
+    const card = document.createElement("div");
+    card.className = "card";
+    if (post.endsWith(".txt")) {
+      card.innerHTML = `<h3>Bài viết</h3><p>Đây là bài viết mẫu.</p>`;
+    } else if (post.endsWith(".pdf")) {
+      card.innerHTML = `<h3>Tài liệu PDF</h3><a href="posts/${post}" target="_blank">Xem PDF</a>`;
+    } else if (post.endsWith(".jpg")) {
+      card.innerHTML = `<h3>Ảnh minh họa</h3><img src="posts/${post}" style="max-width:100%;border-radius:8px;">`;
+    }
+    container.appendChild(card);
+  });
+}
+loadPosts();
